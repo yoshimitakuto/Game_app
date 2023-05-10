@@ -1,0 +1,26 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+//showページ
+.mypage-top {
+  text-align: center;
+}
+
+.profile_image {
+  transform: rotate(10deg);
+  animation: 0.5s text-effect infinite;
+  border-radius: 120px;
+}
+
+@keyframes text-effect {
+  50% {
+    transform: rotate(-10deg) scale(1.05);
+  }
+}
+
+.user_detil {
+  box-shadow: 10px 10px 30px black;
+  width: 500px;
+  padding: 40px;
+}

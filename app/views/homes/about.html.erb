@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="bg-dark d-flex align-items-center justify-content-center animation-area">
+      <h1>ようこそ「ノルマスター」へ🏃💨</h1>
+  </div>
+
+  <%= javascript_pack_tag 'anime.js' %>
+  <script>
+    const animationArea = document.querySelector(".animation-area");
+
+    for (let i = 0; i <= 50;  i++) {
+      const blocks = document.createElement("div");
+       blocks.classList.add("block");
+       animationArea.appendChild(blocks);
+     }
+
+      function animateBlocks() {
+        anime({
+          targets: ".blocks",
+          translateX: function() {
+            return anime.random(-800, 700);
+          }
+        });
+      }
+
+     animateBlocks();
+
+
+  </script>
+
+  <div class="mx-auto">
+    <%= link_to 'ログアウト',destroy_user_session_path, method: :delete, class: "text-center" %>
+  </div>
+
+  <div class="mx-auto">
+    <%= link_to 'ユーザー編集',edit_user_path(current_user.id), class: "text-center" %>
+  </div>
+
+  <div class="mx-auto">
+    <%= link_to 'マイページ',user_path(current_user.id), class: "text-center" %>
+  </div>
+
+
+
+</div>
+
+

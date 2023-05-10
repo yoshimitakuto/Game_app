@@ -1,0 +1,39 @@
+<div class="container mt-5">
+  <div class="mx-auto mb-5 mypage-top">
+    <h1>ユーザー編集</h1><br>
+    <%= link_to user_path(@user.id) do %>
+     <%= image_tag @user.get_profile_image(100,100), class: "profile_image" %>
+    <% end %>
+  </div>
+
+  <div class="user_detil mx-auto">
+    <%= form_with model: @user do |f| %>
+
+     <div class="row mb-3 form_group">
+      <label class="col-md-2 col-form-label">画像</label>
+      <div class="col-md-10"><%= f.file_field :profile_image, class: "form_control" %></div>
+     </div>
+
+     <div class="row mb-3 form_group">
+      <label class="col-md-2 col-form-label">名前</label>
+      <div class="col-md-10"><%= f.text_field :name, :size=>"30",  class: "form_control" %></div>
+     </div>
+
+     <div class="row mb-3 form_group">
+      <label class="col-md-2 col-form-label">説明</label>
+      <div class="col-md-10"><%= f.text_area :introduction, :size=>"30x5", class: "form_control" %></div>
+     </div>
+
+     <div class="form_group text-center">
+      <%= f.submit 'アップデート', class: "btn btn-info btn-sm" %>
+     </div>
+
+    <% end %>
+  </div>
+
+  <div class="mx-auto mt-5 text-center">
+    <p>トップページは<%= link_to 'こちら', root_path %></p>
+  </div>
+
+
+</div>

@@ -1,0 +1,20 @@
+// Place all the styles related to the homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.animation-area {
+  height: 600px;
+}
+
+.animation-area h1 {
+  color: lightgray;
+}
+
+.block {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: lightgreen;
+  box-shadow: 10px 10px 30px black;
+}
