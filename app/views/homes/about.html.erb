@@ -1,6 +1,8 @@
 <div class="container">
   <div class="bg-dark d-flex align-items-center justify-content-center animation-area">
       <h1>ようこそ「ノルマスター」へ🏃💨</h1>
+      <!--今月のノルマ入力していない場合のみnewvewsへ遷移させたい-->
+      <h2><%= link_to 'Start',new_sale_path %></h2>
   </div>
 
   <%= javascript_pack_tag 'anime.js' %>

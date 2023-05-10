@@ -1,0 +1,40 @@
+<div class="text-center">
+ <div class="mt-3 mb-3">
+ <h1>みんなのノルマ</h1>
+</div>
+
+<div class="card-container">
+<% @sales.each do |s| %>
+<div class="card" style="width: 18rem;">
+  <% if s.title == "ちょろいな" %>
+   <%= image_tag '怪物くん.jpg', size: "50%x50%" %>
+  <% elsif s.title == "まあまあだな" %>
+   <%= image_tag '鬼.jpg', size: "50%x50%" %>
+  <% elsif s.title == "いつも通りだ" %>
+   <%= image_tag 'golira.jpeg', size: "50%x50%" %>
+  <% elsif s.title == "ちょっと高くね？" %>
+   <%= image_tag 'タコ.jpg', size: "50%x50%" %>
+  <% else %>
+   <%= image_tag '魔王.jpg', size: "50%x50%" %>
+  <% end %>
+  <div class="card-body">
+    <h5 class="card-title"><%= s.user.name %></h5>
+    <p class="card-text"><%= s.body %></p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">ノルマ：<%= s.quota %></li>
+    <li class="list-group-item">達成率：<%= (5000000 / s.quota) * 100 %> %</li>
+    <li class="list-group-item">A third item</li>
+  </ul>
+  <div class="card-body">
+    <%= link_to '編集', edit_sale_path(s.id), class: "card-link" %>
+    <%= link_to '編集', edit_sale_path(s.id), class: "card-link" %>
+  </div>
+</div>
+<% end %>
+</div>
+
+</div>
+
+
+

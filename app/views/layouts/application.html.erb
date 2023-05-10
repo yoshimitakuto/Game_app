@@ -13,6 +13,41 @@
 
   <body>
     <%= flash[:notice] %>
+  <header>
+   <nav class="navbar navbar-expand-lg bg-dark pt-3 pb-3 text-center">
+     <div class="collapse navbar-collapse">
+       <div class="navber navber-brand col-md-4"><%= link_to 'ノルマスター', root_path %></div>
+        <ul class="navbar-nav mx-auto">
+          <% if user_signed_in? %>
+          <li class="nav-item ml-5">
+            <%= link_to "ミニゲーム",about_path ,class: "nav-link" %>
+          </li>
+          <li class="nav-item ml-5">
+           <%= link_to "ノルマ設定",new_sale_path ,class: "nav-link" %>
+          </li>
+          <li class="nav-item ml-5">
+            <%= link_to "ログアウト",destroy_user_session_path, method: :delete, class: "nav-link" %>
+          </li>
+          <% else %>
+          <li class="nav-item ml-5">
+            <%= link_to "ゲストログイン", class: "nav-link" %>
+          </li>
+          <li class="nav-item ml-5">
+            <%= link_to "新規登録",new_user_registration_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item ml-5">
+            <%= link_to "ログイン",user_session_path, method: :post,  class: "nav-link" %>
+          </li>
+          <% end %>
+        </ul>
+        <% if user_signed_in? %>
+          <%= link_to user_path(current_user.id) do %>
+           <%= image_tag current_user.get_profile_image(50,50), class: "header-image mr-3" %>
+          <% end %>
+        <% end %>
+      </div>
+    </nav>
+  </header>
     <%= yield %>
   </body>
 </html>

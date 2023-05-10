@@ -1,0 +1,34 @@
+<div class="container mt-5">
+  <div class="mx-auto mb-5 text-center">
+    <h1>ノルマ情報入力画面</h1><br>
+    <%= link_to 'みんなのノルマ', sales_path %>
+  </div>
+
+    <%= form_with model: @sale do |f| %>
+
+     <div class="row mb-3 form_group">
+      <label class="col-md-2 col-form-label"><strong>月間ノルマ</strong></label>
+      <div class="col-md-10"><%= f.number_field :quota, class: "form_control" %></div>
+      <p>※全て数値で入力してください<br>
+         例（5,000,000）</p>
+     </div>
+
+     <div class="row mb-3 form_group">
+      <label class="col-md-2 col-form-label"><strong>ノルマにする所感</strong></label>
+      <div class="col-md-10"><%= f.select :title, [["ちょろいな","ちょろいな"], ["まあまあだな","まあまあだな"], ["いつも通りだ", "いつも通りだ"], ["ちょっと高くね？","ちょっと高くね？"], ["高すぎだわ！","高すぎだわ！"]], include_blank: "選択して下さい" %></div>
+     </div>
+
+     <div class="row mb-3 form_group">
+      <label class="col-md-2 col-form-label"><strong>意気込み🔥</strong></label>
+      <div class="col-md-10"><%= f.text_area :body, :size=>"30x5", placeholder: "例）今月は絶対に達成するぞ！！", class: "form_control" %></div>
+     </div>
+
+     <div class="form_group text-center">
+      <%= f.submit '設定完了', class: "btn btn-success btn-sm" %>
+     </div>
+
+    <% end %>
+  </div>
+
+
+</div>
